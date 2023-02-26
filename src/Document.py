@@ -3,7 +3,7 @@ from os import PathLike
 import nltk as nltk
 
 
-class TextFile:
+class Document:
     content: str
     words: [str]
 

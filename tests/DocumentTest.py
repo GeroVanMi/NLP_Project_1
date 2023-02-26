@@ -1,25 +1,25 @@
 import unittest
 
-from src.TextFile import TextFile
+from src.Document import Document
 
-file = TextFile('mock_data/roses.txt')
+document = Document('mock_data/roses.txt')
 
 
-class TextFileTest(unittest.TestCase):
+class DocumentTest(unittest.TestCase):
 
     def test_number_of_characters(self):
         """
         Number of characters
         :return:
         """
-        self.assertEqual(62, file.get_character_amount())
+        self.assertEqual(62, document.get_character_amount())
 
     def test_find(self):
         """
         Full text search for a substring (e.g. with Knuth-Morris-Pratt algorithm)
         :return:
         """
-        location = file.find('Roses')
+        location = document.find('Roses')
         self.assertEqual(0, location)
 
     def test_words_tokenization(self):
@@ -33,7 +33,7 @@ class TextFileTest(unittest.TestCase):
             "Sugar", "is", "sweet",
             "And", "so", "are", "you", "."
         ]
-        self.assertListEqual(expected_words, file.words)
+        self.assertListEqual(expected_words, document.words)
 
     def test_number_of_words(self):
         """
@@ -41,7 +41,7 @@ class TextFileTest(unittest.TestCase):
         :return:
         """
         expected_length = 15
-        self.assertEqual(expected_length, file.number_of_words())
+        self.assertEqual(expected_length, document.number_of_words())
 
     def test_unique_words(self):
         """
@@ -54,7 +54,7 @@ class TextFileTest(unittest.TestCase):
             "Sugar", "is", "sweet",
             "And", "so", "are", "you", "."
         }
-        self.assertSetEqual(expected_unique_words, file.get_unique_words())
+        self.assertSetEqual(expected_unique_words, document.get_unique_words())
 
     def test_number_of_unique_words(self):
         """
@@ -63,7 +63,7 @@ class TextFileTest(unittest.TestCase):
         """
         # "are" appears 3 times, so the total length is reduced by 2
         expected_length = 13
-        self.assertEqual(expected_length, file.number_of_unique_words())
+        self.assertEqual(expected_length, document.number_of_unique_words())
 
     def test_inverted_index(self):
         """
@@ -71,7 +71,7 @@ class TextFileTest(unittest.TestCase):
         :return:
         """
         expected_location_of_are = [1, 4, 12]
-        self.assertEqual(expected_location_of_are, file.get_inverted_index()['are'])
+        self.assertEqual(expected_location_of_are, document.get_inverted_index()['are'])
 
     def test_character_set(self):
         """
@@ -79,7 +79,7 @@ class TextFileTest(unittest.TestCase):
         :return:
         """
         expected_set = set("Roses are red Violets are blue, Sugar is sweet And so are you.")
-        self.assertSetEqual(expected_set, file.get_character_set())
+        self.assertSetEqual(expected_set, document.get_character_set())
 
     def test_character_occurrences(self):
         """
@@ -88,7 +88,7 @@ class TextFileTest(unittest.TestCase):
         :return:
         """
         expected_occurrences_of_a = 4
-        self.assertEqual(expected_occurrences_of_a, file.get_character_occurrences()['a'])
+        self.assertEqual(expected_occurrences_of_a, document.get_character_occurrences()['a'])
 
 
 if __name__ == '__main__':
