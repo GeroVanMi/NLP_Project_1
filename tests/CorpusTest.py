@@ -10,6 +10,10 @@ class CorpusTest(unittest.TestCase):
         expected_length = 451
         self.assertEqual(expected_length, len(corpus.documents))
 
+    def test_corpus_inverted_index(self):
+        index = corpus.generate_inverted_index()
+        self.assertIn('Roses', index)
+
 
 if __name__ == '__main__':
     unittest.main()
