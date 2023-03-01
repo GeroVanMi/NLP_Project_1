@@ -1,6 +1,6 @@
 import unittest
 
-from src.Corpus import Corpus
+from src.gero.nlp_workbench.Corpus import Corpus
 
 corpus = Corpus("./mock_data")
 

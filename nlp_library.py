@@ -1,4 +1,4 @@
-from src.Corpus import Corpus
+from src.gero.nlp_workbench.Corpus import Corpus
 
 
 def main():

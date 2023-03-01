@@ -1,6 +1,6 @@
 import unittest
 
-from src.Document import Document
+from src.gero.nlp_workbench.Document import Document
 
 document = Document('mock_data/roses.txt')
 
