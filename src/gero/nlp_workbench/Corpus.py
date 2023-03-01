@@ -2,7 +2,7 @@ import os
 import re
 from os import PathLike
 
-from Document import Document
+from gero.nlp_workbench.Document import Document
 
 
 class Corpus:

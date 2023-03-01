@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gero-nlp-workbench"
-version = "0.0.3"
+version = "0.0.4"
 description = "A simple NLP workbench."
 #readme = "README.md"
 authors = [{ name = "Gerome Meyer", email = "meyerger@students.zhaw.ch" }]
