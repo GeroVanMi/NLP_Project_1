@@ -18,7 +18,7 @@ keywords = ["nlp", "natural language processing", "example", "workbench", "toolk
 dependencies = [
     "nltk >= 3.8.0",
     "wordcloud ~= 1.8.2.2",
-    "matplotlib ~= 3.6.2""
+    "matplotlib ~= 3.6.2"
 ]
 requires-python = ">=3.10"
 
