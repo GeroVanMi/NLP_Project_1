@@ -2,6 +2,9 @@ import os
 import re
 from os import PathLike
 
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+
 from gero.nlp_workbench.Document import Document
 
 
@@ -42,3 +45,27 @@ class Corpus:
                 inverted_index[word][document_index] += 1
 
         return inverted_index
+
+    def get_corpus_wide_content(self) -> str:
+        """
+        Concatenates the content strings of all corpus documents together and returns the resulting string.
+        :return:
+        """
+        entire_content = ""
+        for document in self.documents:
+            entire_content += document.content
+            entire_content += " "
+        return entire_content
+
+    def generate_word_cloud(self, should_plot=True) -> WordCloud:
+        """
+        Uses matplotlib to generate the plot.
+        :return:
+        """
+        wordcloud = WordCloud().generate(self.get_corpus_wide_content())
+        if should_plot:
+            plt.figure()
+            plt.imshow(wordcloud, interpolation="bilinear")
+            plt.axis("off")
+            plt.show()
+        return wordcloud
